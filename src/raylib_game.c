@@ -14,6 +14,7 @@
 
 #include "raylib.h"
 #include "screens.h"    // NOTE: Declares global (extern) variables and screens functions
+#include "types.h"
 
 #if defined(PLATFORM_WEB)
     #include <emscripten/emscripten.h>
@@ -51,6 +52,14 @@ static void UpdateTransition(void);         // Update transition effect
 static void DrawTransition(void);           // Draw transition effect (full-screen rectangle)
 
 static void UpdateDrawFrame(void);          // Update and draw one frame
+
+
+//----------------------------------------------------------------------------------
+// Adventurer Manager global state variables
+//----------------------------------------------------------------------------------
+
+
+
 
 //----------------------------------------------------------------------------------
 // Main entry point
