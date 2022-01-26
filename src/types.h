@@ -14,7 +14,7 @@ typedef struct Properties {
 } Property;
 
 typedef struct Bonuses {
-	char description[100]
+	char description[100];
 	int type;
 	float value;
 } Bonus;
