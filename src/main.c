@@ -9,6 +9,9 @@
 #if defined(PLATFORM_WEB)
 	#include <emscripten/emscripten.h>
 #endif
+//-------------------------------------------------------
+// General globals
+//-------------------------------------------------------
 
 int screenWidth = 800;
 int screenHeight = 480;
@@ -17,7 +20,18 @@ char title[] = "That was close";
 GameScreen currentScreen = 0;
 Font font = {0};
 
+void GameInit(void);
 void UpdateDrawFrame(void);
+
+//-------------------------------------------------------
+// Game global state
+//-------------------------------------------------------
+
+Manager manager = {
+	"Manager",
+	"default_portrait.png"
+};
+
 
 
 int main(void)
