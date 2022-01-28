@@ -1,5 +1,4 @@
 #include "raylib.h"
-#include "screens.h"
 #include "types.h"
 
 
@@ -9,13 +8,20 @@
 #if defined(PLATFORM_WEB)
 	#include <emscripten/emscripten.h>
 #endif
+
+
+typedef enum GameScreen { LOGO = 0, TITLE, OPTIONS, GAMEPLAY, ENDING } GameScreen;
+
 //-------------------------------------------------------
 // General globals
 //-------------------------------------------------------
 
 int screenWidth = 800;
-int screenHeight = 480;
+int screenHeight = 600;
 char title[] = "That was close";
+
+
+
 
 GameScreen currentScreen = 0;
 Font font = {0};
@@ -37,7 +43,7 @@ Manager manager = {
 int main(void)
 {
 	InitWindow(screenWidth, screenHeight, title);
-	InitAudioDevice();
+	//InitAudioDevice();
 	font = LoadFont("resources/mecha.png");
 	currentScreen = LOGO;
 #if defined(PLATFORM_WEB)
@@ -58,6 +64,24 @@ int main(void)
 
 void UpdateDrawFrame(void)
 {
-	float deltaTime = GetFrameTime();
-	printf("Time: %f\n", deltaTime);
+	float deltaTime = GetTime();
+	char pastTime[100];
+	sprintf(pastTime, "Time:%lf", deltaTime);
+	//printf("Time: %f\n", deltaTime);
+
+	//---------------------------------------------------
+	// Actual drawing
+	//--------------------------------------------------
+	if (currentScreen == LOGO) {	
+		BeginDrawing();
+		ClearBackground(WHITE);
+		DrawText(pastTime, 10,10,36,BLACK);
+		EndDrawing();
+	}
+	else 
+	{
+		BeginDrawing();
+		ClearBackground(BLACK);
+		EndDrawing();
+	}
 }

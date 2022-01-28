@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     
-    <title>raylib web game</title>
+    <title>That Was Close!</title>
     
-    <meta name="title" content="raylib web game">
+    <meta name="title" content="That Was Close!">
     <meta name="description" content="New raylib web videogame, developed using raylib videogames library">
     <meta name="keywords" content="raylib, games, html5, programming, C, C++, library, learn, videogames">
     <meta name="viewport" content="width=device-width">
@@ -54,8 +54,13 @@
     </script>
     </head>
     <body>
-        <canvas class=emscripten id=canvas oncontextmenu=event.preventDefault() tabindex=-1></canvas>
-        <p id="output" />
+		<div class="container">
+			<header>
+				<h1>That was close!</h1>
+			</header>
+			<canvas class=emscripten id=canvas oncontextmenu=event.preventDefault() tabindex=-1></canvas>
+			<p id="output" />
+		</div>
         <script>
             var Module = {
                 print: (function() {
