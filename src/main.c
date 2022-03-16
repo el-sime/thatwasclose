@@ -64,6 +64,7 @@ void InitGameplay(void);
 GameScreen UpdateGameplay(float dt)
 {
 	XP += XPRate * dt;
+
 	DrawGameplay();
 	return GAMEPLAY;
 }
@@ -75,7 +76,7 @@ void DrawGameplay(void)
 	sprintf(XPLabel, "XP: %3.2lf", XP);
 	sprintf(levelLabel, "Level: %d", level);
 	BeginDrawing();
-	ClearBackground(GREEN);
+	ClearBackground(LIGHTGRAY);
 	DrawText(levelLabel, 10, 10, 36, BLACK);
 	DrawText(XPLabel, strlen(levelLabel) + 100, 10, 36, BLACK);
 	EndDrawing();
@@ -90,8 +91,8 @@ void UpdateDrawFrame(void)
 	float deltaTime = currentTime - lastFrameTime;
 	lastFrameTime = currentTime;
 
-	printf("current screen: %d\n", currentScreen);
-	printf("GAMEPLAY screen: %d\n", GAMEPLAY);
+	emscripten_log(0, "current screen: %d\n", currentScreen);
+	emscripten_log(0, "GAMEPLAY screen: %d\n", GAMEPLAY);
 
 	//---------------------------------------------------
 	// Actual drawing
